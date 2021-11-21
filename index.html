@@ -33,19 +33,7 @@
 
 		<!-- Initialize Swiper -->
 		<script>
-		  var swiper = new Swiper(".mySwiper", {
-			cssMode: true,
-			navigation: {
-			  nextEl: ".swiper-button-next",
-			  prevEl: ".swiper-button-prev",
-			},
-			pagination: {
-			  el: ".swiper-pagination",
-			},
-			mousewheel: true,
-			keyboard: true,
-		  });
-
+		  
 		  jQuery.ajax({
 			type: "GET",
 			url: "http://localhost:3000/services",
@@ -353,7 +341,20 @@
 		</div>
 		<!-- end footer bottom -->
 		
-		
+		<script>
+			var swiper = new Swiper(".mySwiper", {
+			cssMode: true,
+			navigation: {
+			  nextEl: ".swiper-button-next",
+			  prevEl: ".swiper-button-prev",
+			},
+			pagination: {
+			  el: ".swiper-pagination",
+			},
+			mousewheel: true,
+			keyboard: true,
+		  });
+		</script>
 
 
 	</body>

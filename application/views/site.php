@@ -26,7 +26,7 @@
 
 <!-- Initialize Swiper -->
 <script>
-  
+  //Funcionamento somente local devido limitaçao do servidor hospedado
   jQuery.ajax({
     type: "GET",
     url: "http://localhost:3000/services",
@@ -42,7 +42,8 @@
         }
     }
   });
-
+  
+  //Funcionamento somente local devido limitaçao do servidor hospedado
   jQuery.ajax({
     type: "GET",
     url: "http://localhost:3000/clients",
@@ -58,6 +59,23 @@
         }
     }
   });
+
+  fetch("<?=base_url()."_html/api/db.json"?>")
+	.then( (response) => {
+		return response.json() })   
+			.then( (res) => {
+				for(i = 0; i < res["clients"].length; i++){
+					$("#img_"+i).attr("src", res["clients"][i].image);
+					$('#img_'+i).attr("alt",res["clients"][i].title);
+					$('#clt_'+i).attr("href",res["clients"][i].link);
+				}
+
+				for(i = 0; i < res["services"].length; i++){
+					$('#img_integrado'+i).addClass(res["services"][i].image);
+					$('#h5_integrado'+i).html(res["services"][i].title);
+					$('#p_integrado'+i).html(res["services"][i].description);
+				}
+			});
 
 </script>
 </head>
